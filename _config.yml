@@ -9,7 +9,7 @@ name: Cloud Dash
 description: Native macOS app for AWS
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: http://raw.githubusercontent.com/shivanan/clouddash.io/master/icon.png
+avatar: http://raw.githubusercontent.com/shivanan/cloudda.sh/master/icon.png
 
 #
 # Flags below are optional
@@ -47,7 +47,7 @@ url: https://cloudda.sh
 # (http://yourusername.github.io/repository-name)
 # and NOT your User repository (http://yourusername.github.io)
 # then add in the baseurl here, like this: "/repository-name"
-baseurl: "/cloudda.sh"
+baseurl: ""
 
 #
 # !! You don't need to change any of the configuration flags below !!
