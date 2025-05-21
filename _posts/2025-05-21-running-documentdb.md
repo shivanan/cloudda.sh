@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Running AWS DocumentDB on a Budget: Real-World Experience
+title: Running AWS DocumentDB on a Budget -  Real-World Experience
 ---
 
 
