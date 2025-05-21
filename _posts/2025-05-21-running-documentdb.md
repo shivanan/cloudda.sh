@@ -3,14 +3,19 @@ layout: post
 title: Running AWS DocumentDB on a Budget -  Real-World Experience
 ---
 
+One of our SaaS products needs to be super price competitive and this means being careful about hosting charges.
+We built with MongoDB but didn't want to deal with replications and clustering and maintaining high availability on our own. 
+We looked at Cloud Atlas but since we were already on AWS we thought DocumentDB may be a good option.
 
-When we first decided to migrate our MongoDB workloads to the cloud, cost was a significant concern. AWS DocumentDB looked promising with its MongoDB-compatible API, but its reputation for being expensive gave us pause. After running production workloads on it for the past year, I wanted to share our experience running DocumentDB on a budget and some important lessons we learned along the way.
+ After running production workloads on it for a few  years now, I wanted to share our experience running DocumentDB on a budget and some important lessons we learned along the way.
 
 ## Medium Tier: Surprisingly Capable
 
-One of our first pleasant surprises was discovering that DocumentDB's medium tier instances are actually quite capable. Amazon's marketing pushes customers toward larger instance types, but we found that `db.r5.large` or even `db.r5.medium` instances handled our production workloads remarkably well.
+One of our first pleasant surprises was discovering that DocumentDB's medium tier instances are actually quite capable. Amazon's marketing pushes customers toward larger instance types, but we found that `db.r5.medium` instances handled our production workloads remarkably well.
 
-Our application serves approximately 50,000 daily active users, with peak loads generating around 1,200 operations per second. The medium tier instances maintained sub-10ms response times for most operations, only occasionally spiking during heavy write operations. 
+Our workload is mostly writes from sensor data and analytics on top of them. 
+1000s of sensors writing data every second or few seconds.
+The medium tier instances maintained sub-10ms response times for most operations, only occasionally spiking during heavy write operations. 
 
 We started with a three-node cluster (one primary, two replicas) using `db.r5.medium` instances, which provided enough redundancy while keeping our monthly compute costs under $500. This was significantly less than the $1,500+ we had initially budgeted based on AWS's own sizing recommendations.
 
